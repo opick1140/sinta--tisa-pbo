@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko Baju Online</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .product { display: inline-block; margin: 20px; border: 1px solid #ddd; padding: 10px; }
-        img { width: 150px; height: 150px; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Selamat Datang di Toko Baju Online</h1>
-    <div>
+    <div class="container">
         {% for product in products %}
             <div class="product">
-                <img src="{{ product.image }}" alt="{{ product.name }}">
+                <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
                 <h3>{{ product.name }}</h3>
                 <p>Rp{{ "{:,}".format(product.price) }}</p>
             </div>
